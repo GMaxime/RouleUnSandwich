@@ -16,14 +16,13 @@
 		<property name="hibernate.dbcp.maxWaitMillis">-1</property>
 		
 		
-		<mapping class="gyrodragon.RouleUnSandwich.pojo.Produit" />
-<!-- 		<mapping class="gyrodragon.RouleUnSandwich.pojo.Accompagnement" /> -->
+ 		<mapping class="gyrodragon.RouleUnSandwich.pojo.Accompagnement" />
 		<mapping class="gyrodragon.RouleUnSandwich.pojo.Client" />
 		<mapping class="gyrodragon.RouleUnSandwich.pojo.Commande" />
+		<mapping class="gyrodragon.RouleUnSandwich.pojo.Produit" />
 	 	<mapping class="gyrodragon.RouleUnSandwich.pojo.Sandwich" />
 	 	<mapping class="gyrodragon.RouleUnSandwich.pojo.SandwichPerso" />
-	 	<mapping class="gyrodragon.RouleUnSandwich.pojo.associations.CommandeSandwich" />
-	 	<mapping class="gyrodragon.RouleUnSandwich.pojo.SandwichPerso" />
+	 	<mapping class="gyrodragon.RouleUnSandwich.pojo.associations.ProduitSandwich" />
 		<!--<mapping class="gyrodragon.RouleUnSandwich.pojo.Formule" /> -->
 		
 		

@@ -24,9 +24,6 @@ public class Commande {
 	@OneToMany
 	@JoinColumn(name = "sp_com_id")
 	List<SandwichPerso> sandwichs;
-
-	
-	
 	
 	@Column(name = "com_status")
 	String etat;

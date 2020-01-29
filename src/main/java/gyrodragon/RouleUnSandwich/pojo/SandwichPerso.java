@@ -1,20 +1,17 @@
 package gyrodragon.RouleUnSandwich.pojo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Query;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
-import gyrodragon.RouleUnSandwich.pojo.hibernate.HibernateUtil;
+import gyrodragon.RouleUnSandwich.pojo.associations.ProduitSandwich;
 
 @Entity
 @Table(name = "sandwichs_perso")
@@ -27,21 +24,12 @@ public class SandwichPerso {
 	@JoinColumn(name = "sp_san_id")
 	Sandwich base;
 	
-	@Transient
-	ArrayList<Produit> produits = new ArrayList<Produit>();
+	@OneToMany
+	@JoinColumn(name = "ps_san_id")
+	List<ProduitSandwich> produits;
 	
 	@Column(name = "sp_com_id")
 	int commandeId;
-	
-	public void fetchProduits() {
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		Transaction tcx = session.beginTransaction();
-		
-		Query query = session.createQuery("from ProduitSandwich where idSan = :idsan");
-		query.setParameter("idsan", id);
-		produits = (ArrayList<Produit>) query.getResultList().get(0);
-		tcx.commit();
-	}
 
 	public int getId() {
 		return id;
@@ -51,8 +39,12 @@ public class SandwichPerso {
 		return base;
 	}
 
-	public ArrayList<Produit> getProduits() {
-		return produits;
+	public List<Produit> getProduits() {
+		List<Produit> pro = new ArrayList<Produit>();
+		for (ProduitSandwich ps : produits) {
+			pro.add(ps.getProduit());
+		}
+		return pro;
 	}
 
 	public void setId(int id) {
@@ -63,8 +55,8 @@ public class SandwichPerso {
 		this.base = base;
 	}
 
-	public void setProduits(ArrayList<Produit> produits) {
-		this.produits = produits;
+	public void setProduits(List<Produit> produits) {
+//		this.produits = produits; TODO
 	}
 	
 	
