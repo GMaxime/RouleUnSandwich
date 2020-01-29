@@ -12,10 +12,13 @@ public class Accompagnement {
 	@Column(name = "acc_id")
 	int id;
 	
-	@Column(name = "name")
+	@Column(name = "acc_name")
 	String name;
 	
-	@Column(name = "price")
+	@Column(name = "acc_category")
+	String category;
+	
+	@Column(name = "acc_price")
 	double price;
 	
 	

@@ -1,5 +1,6 @@
 package gyrodragon.RouleUnSandwich.pojo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import gyrodragon.RouleUnSandwich.pojo.associations.CommandeAccompagnement;
 
 @Entity
 @Table(name = "commandes")
@@ -25,8 +28,20 @@ public class Commande {
 	@JoinColumn(name = "sp_com_id")
 	List<SandwichPerso> sandwichs;
 	
+	@OneToMany
+	@JoinColumn(name = "ca_com_id")
+	List<CommandeAccompagnement> accompagnements;
+	
 	@Column(name = "com_status")
 	String etat;
+	
+	public List<Accompagnement> getAccompagnements() {
+		List<Accompagnement> pro = new ArrayList<Accompagnement>();
+		for (CommandeAccompagnement ps : accompagnements) {
+			pro.add(ps.getAccompagnement());
+		}
+		return pro;
+	}
 	
 	public int getId() {
 		return id;
@@ -68,6 +83,6 @@ public class Commande {
 	
 	@Override
 	public String toString() {
-		return "Commande n°"+ id +" : passée par le client " + client.getId() + " comprends " + sandwichs.size() + " sandwichs";
+		return "Commande n°"+ id +" : passée par le client " + client.getId() + " comprends " + sandwichs.size() + " sandwichs et " + getAccompagnements().size() + " accompagnements";
 	}
 }

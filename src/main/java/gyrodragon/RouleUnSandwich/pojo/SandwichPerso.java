@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import gyrodragon.RouleUnSandwich.pojo.associations.ProduitSandwich;
+import gyrodragon.RouleUnSandwich.pojo.associations.ProduitSandwichPerso;
 
 @Entity
 @Table(name = "sandwichs_perso")
@@ -25,8 +25,8 @@ public class SandwichPerso {
 	Sandwich base;
 	
 	@OneToMany
-	@JoinColumn(name = "ps_san_id")
-	List<ProduitSandwich> produits;
+	@JoinColumn(name = "psp_san_id")
+	List<ProduitSandwichPerso> produits;
 	
 	@Column(name = "sp_com_id")
 	int commandeId;
@@ -41,7 +41,7 @@ public class SandwichPerso {
 
 	public List<Produit> getProduits() {
 		List<Produit> pro = new ArrayList<Produit>();
-		for (ProduitSandwich ps : produits) {
+		for (ProduitSandwichPerso ps : produits) {
 			pro.add(ps.getProduit());
 		}
 		return pro;
