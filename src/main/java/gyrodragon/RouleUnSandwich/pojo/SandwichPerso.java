@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Query;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -21,14 +23,15 @@ public class SandwichPerso {
 	@Column(name = "sp_id")
 	int id;
 	
-	@Column(name = "sp_san_id")
-	Integer sandId;
-	
-	@Transient
+	@ManyToOne
+	@JoinColumn(name = "sp_san_id")
 	Sandwich base;
 	
 	@Transient
 	ArrayList<Produit> produits = new ArrayList<Produit>();
+	
+	@Column(name = "sp_com_id")
+	int commandeId;
 	
 	public void fetchProduits() {
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -44,10 +47,6 @@ public class SandwichPerso {
 		return id;
 	}
 
-	public int getSandid() {
-		return sandId;
-	}
-
 	public Sandwich getBase() {
 		return base;
 	}
@@ -58,10 +57,6 @@ public class SandwichPerso {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public void setSandid(int sandid) {
-		sandId = sandid;
 	}
 
 	public void setBase(Sandwich base) {

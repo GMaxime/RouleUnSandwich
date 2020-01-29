@@ -1,21 +1,14 @@
 package gyrodragon.RouleUnSandwich.pojo;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Query;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
-import gyrodragon.RouleUnSandwich.pojo.associations.CommandeSandwich;
-import gyrodragon.RouleUnSandwich.pojo.hibernate.HibernateUtil;
 
 @Entity
 @Table(name = "commandes")
@@ -28,9 +21,16 @@ public class Commande {
 	@JoinColumn(name = "com_cli_id")
 	Client client;
 	
-	@Transient
-	ArrayList<SandwichPerso> sandwichs = new ArrayList<SandwichPerso>();
+	@OneToMany
+	@JoinColumn(name = "sp_com_id")
+	List<SandwichPerso> sandwichs;
 
+	
+	
+	
+	@Column(name = "com_status")
+	String etat;
+	
 	public int getId() {
 		return id;
 	}
@@ -47,25 +47,30 @@ public class Commande {
 		this.client = client;
 	}
 
-	public ArrayList<SandwichPerso> getSandwichs() {
+	public List<SandwichPerso> getSandwichs() {
 		return sandwichs;
 	}
 
-	public void setSandwichs(ArrayList<SandwichPerso> sandwichs) {
+	public void setSandwichs(List<SandwichPerso> sandwichs) {
 		this.sandwichs = sandwichs;
 	}
+//	
+//	public void fetchSandwichs() {
+//		Session session = HibernateUtil.getSessionFactory().openSession();
+//		Transaction tcx = session.beginTransaction();
+//		
+//		Query query = session.createQuery("select idSan from CommandeSandwich where idCom = :idcom");
+//		query.setParameter("idcom", id);
+//		ArrayList<Integer> cs = (ArrayList<Integer>) query.getResultList();
+//		tcx.commit();
+//		
+//		query = session.createQuery("from SandwichPerso where id in (:idlist)");
+//		query.setParameter("idlist", cs);
+//		sandwichs = (ArrayList<SandwichPerso>) query.getResultList();
+//	}
 	
-	public void fetchSandwichs() {
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		Transaction tcx = session.beginTransaction();
-		
-		Query query = session.createQuery("select idSan from CommandeSandwich where idCom = :idcom");
-		query.setParameter("idcom", id);
-		ArrayList<Integer> cs = (ArrayList<Integer>) query.getResultList();
-		tcx.commit();
-		
-		query = session.createQuery("from SandwichPerso where id in (:idlist)");
-		query.setParameter("idlist", cs);
-		sandwichs = (ArrayList<SandwichPerso>) query.getResultList();
+	@Override
+	public String toString() {
+		return "Commande n°"+ id +" : passée par le client " + client.getId() + " comprends " + sandwichs.size() + " sandwichs";
 	}
 }

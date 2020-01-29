@@ -5,8 +5,7 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import gyrodragon.RouleUnSandwich.pojo.Commande;
-import gyrodragon.RouleUnSandwich.pojo.Produit;
+import gyrodragon.RouleUnSandwich.pojo.*;
 import gyrodragon.RouleUnSandwich.pojo.hibernate.HibernateUtil;
 
 public class launcher {
@@ -17,10 +16,9 @@ public class launcher {
 		
 //		System.out.println(produit);
 //		System.out.println(session.save(produit));
-		Query query = session.createQuery("from Commande");
-		Commande c = (Commande) query.getResultList().get(0);
-		c.fetchSandwichs();
-		System.out.println(c.getSandwichs());
+		Query query = session.createQuery("from Client");
+		Client c = (Client) query.getResultList().get(0);
+		System.out.println(c);
 		
 		tcx.commit();
 	}
