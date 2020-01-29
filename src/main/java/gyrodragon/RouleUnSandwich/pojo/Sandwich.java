@@ -21,13 +21,25 @@ public class Sandwich {
 	
 	@Column(name = "san_name")
 	String name;
-	
+
 	@Column(name = "san_price")
 	double price;
 	
 	@OneToMany
 	@JoinColumn(name = "ps_san_id")
 	List<ProduitSandwich> produits;
+	
+	public int getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public double getPrice() {
+		return price;
+	}
 
 	public List<Produit> getProduits() {
 		List<Produit> pro = new ArrayList<Produit>();

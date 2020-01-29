@@ -55,9 +55,18 @@ public class SandwichPerso {
 		this.base = base;
 	}
 
-	public void setProduits(List<Produit> produits) {
-//		this.produits = produits; TODO
+	public void addProduits(Produit produit) {
+		ProduitSandwichPerso psp = new ProduitSandwichPerso(id, produit.getId(), produit);
+		produits.add(psp);
 	}
 	
-	
+	public Double getPrice() {
+		Double price = 0.0;
+		if (base != null)
+			price += base.getPrice();
+		for (Produit produit : getProduits())
+			price += produit.getPrice();
+		
+		return price;
+	}
 }
