@@ -35,6 +35,9 @@ public class Commande {
 	@Column(name = "com_status")
 	String etat;
 	
+	@Column(name = "com_price")
+	Double price;
+	
 	public List<Accompagnement> getAccompagnements() {
 		List<Accompagnement> pro = new ArrayList<Accompagnement>();
 		for (CommandeAccompagnement ps : accompagnements) {
@@ -84,5 +87,41 @@ public class Commande {
 	@Override
 	public String toString() {
 		return "Commande n°"+ id +" : passée par le client " + client.getId() + " comprends " + sandwichs.size() + " sandwichs et " + getAccompagnements().size() + " accompagnements";
+	}
+	
+	public int getSandwichNumber() {
+		return getSandwichs().size();
+	}
+	
+	public int getAccompagnementNumber() {
+		return getAccompagnements().size();
+	}
+	
+	public double calculPrice() {
+		int sanNb = getSandwichNumber();
+		int accNb = getAccompagnementNumber();
+		double price = 0;
+		
+		while(accNb>0) {
+			while(sanNb>0) {
+				if (accNb >= 2) {
+					price += 11.2;
+					sanNb-=1;
+					accNb-=2;
+				}
+				else if (accNb >= 1) {
+					price += 9.8;
+					sanNb-=1;
+					accNb-=1;
+				}
+				else {
+					price += 8;
+					sanNb-=1;
+				}
+			}
+			price += accNb*2;
+		}
+		
+		return price;
 	}
 }
