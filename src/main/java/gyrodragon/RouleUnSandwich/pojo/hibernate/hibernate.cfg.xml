@@ -19,6 +19,7 @@
  		<mapping class="gyrodragon.RouleUnSandwich.pojo.Accompagnement" />
 		<mapping class="gyrodragon.RouleUnSandwich.pojo.Client" />
 		<mapping class="gyrodragon.RouleUnSandwich.pojo.Commande" />
+	 	<mapping class="gyrodragon.RouleUnSandwich.pojo.Formule" />
 		<mapping class="gyrodragon.RouleUnSandwich.pojo.Produit" />
 	 	<mapping class="gyrodragon.RouleUnSandwich.pojo.Sandwich" />
 	 	<mapping class="gyrodragon.RouleUnSandwich.pojo.SandwichPerso" />
