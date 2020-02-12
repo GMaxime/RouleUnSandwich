@@ -14,13 +14,20 @@ public class launcher {
 		
 		Transaction tcx = session.beginTransaction();
 		
-//		System.out.println(produit);
-//		System.out.println(session.save(produit));
-		Query query = session.createQuery("from Client");
-		Client c = (Client) query.getResultList().get(0);
-		System.out.println(c);
+		while (commandNotFinished()) {
+			ShowProductChoice();
+		}
+	}
+
+	private static void ShowProductChoice() {
+		System.out.println("Sandwichs");
+		System.out.println("Accompagnements");
 		
-		tcx.commit();
+	}
+
+	private static boolean commandNotFinished() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 	
