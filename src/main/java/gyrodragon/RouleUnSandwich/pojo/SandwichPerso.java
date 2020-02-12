@@ -33,7 +33,7 @@ public class SandwichPerso {
 	
 	public SandwichPerso() {
 	}
-	
+
 	public SandwichPerso(int commandeId) {
 		this.commandeId = commandeId;
 		base = null;
@@ -68,6 +68,10 @@ public class SandwichPerso {
 
 	public void setBase(Sandwich base) {
 		this.base = base;
+	}
+	
+	public void setCommandeId(int commandeId) {
+		this.commandeId = commandeId;
 	}
 
 	public void addProduits(Produit produit) {

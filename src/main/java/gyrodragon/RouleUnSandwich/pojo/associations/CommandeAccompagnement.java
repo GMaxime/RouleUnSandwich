@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import gyrodragon.RouleUnSandwich.pojo.Accompagnement;
+import gyrodragon.RouleUnSandwich.pojo.Commande;
 
 @Entity
 @Table(name = "commandes_accompagnements")
@@ -26,6 +27,13 @@ public class CommandeAccompagnement implements Serializable {
 	@JoinColumn(name = "ca_acc_id")
 	Accompagnement accompagnement;
 
+	public CommandeAccompagnement() {}
+	
+	public CommandeAccompagnement(Commande c, Accompagnement a) {
+		this.comId = c.getId();
+		this.accId = a.getId();
+	}
+	
 	public Accompagnement getAccompagnement() {
 		return accompagnement;
 	}

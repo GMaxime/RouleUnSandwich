@@ -10,11 +10,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
 import gyrodragon.RouleUnSandwich.pojo.associations.ProduitSandwich;
+import gyrodragon.RouleUnSandwich.pojo.hibernate.HibernateUtil;
 
 @Entity
 @Table(name = "sandwichs")
 public class Sandwich {
+	
+	public static List<Sandwich> all;
+	
 	@Id
 	@Column(name = "san_id")
 	int id;
@@ -47,5 +55,19 @@ public class Sandwich {
 			pro.add(ps.getProduit());
 		}
 		return pro;
+	}
+	
+	public static List<Sandwich> getAll() {
+		if (all == null) {
+			Session session = HibernateUtil.getSessionFactory().openSession();
+			Transaction tcx = session.beginTransaction();
+			
+			@SuppressWarnings("unchecked")
+			Query<Sandwich> query = session.createQuery("from Sandwich");
+			
+			tcx.commit();
+			all = query.list();
+		}
+		return all;
 	}
 }
