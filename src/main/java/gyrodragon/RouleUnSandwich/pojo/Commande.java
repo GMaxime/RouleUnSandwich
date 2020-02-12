@@ -69,20 +69,6 @@ public class Commande {
 	public void setSandwichs(List<SandwichPerso> sandwichs) {
 		this.sandwichs = sandwichs;
 	}
-//	
-//	public void fetchSandwichs() {
-//		Session session = HibernateUtil.getSessionFactory().openSession();
-//		Transaction tcx = session.beginTransaction();
-//		
-//		Query query = session.createQuery("select idSan from CommandeSandwich where idCom = :idcom");
-//		query.setParameter("idcom", id);
-//		ArrayList<Integer> cs = (ArrayList<Integer>) query.getResultList();
-//		tcx.commit();
-//		
-//		query = session.createQuery("from SandwichPerso where id in (:idlist)");
-//		query.setParameter("idlist", cs);
-//		sandwichs = (ArrayList<SandwichPerso>) query.getResultList();
-//	}
 	
 	@Override
 	public String toString() {
@@ -95,6 +81,16 @@ public class Commande {
 	
 	public int getAccompagnementNumber() {
 		return getAccompagnements().size();
+	}
+	
+	public void addSandwich(SandwichPerso sandwich) {
+		sandwichs.add(sandwich);
+		sandwich.setCommandeId(this.id);
+	}
+	
+	public void addAccompagnement(Accompagnement acc) {
+		CommandeAccompagnement ca = new CommandeAccompagnement();
+		accompagnements.add(ca);
 	}
 	
 	public double calculPrice() {
