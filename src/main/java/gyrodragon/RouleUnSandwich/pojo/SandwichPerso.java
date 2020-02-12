@@ -31,6 +31,9 @@ public class SandwichPerso {
 	@Column(name = "sp_com_id")
 	int commandeId;
 	
+	public SandwichPerso() {
+	}
+	
 	public SandwichPerso(int commandeId) {
 		this.commandeId = commandeId;
 		base = null;
