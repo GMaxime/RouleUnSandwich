@@ -9,12 +9,11 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 public class HibernateUtil {
 	private static StandardServiceRegistry registry;
 	private static SessionFactory sessionFactory;
-	private final static String PATH = "gyrodragon/RouleUnSandwich/pojo/hibernate/";   
 	
 	public static SessionFactory getSessionFactory() {
 		if (sessionFactory == null) {
 			try {
-				registry = new StandardServiceRegistryBuilder().configure(PATH+"hibernate.cfg.xml").build();
+				registry = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
 				MetadataSources metaSources = new MetadataSources(registry);
 				Metadata metadata = metaSources.getMetadataBuilder().build();
 				sessionFactory = metadata.getSessionFactoryBuilder().build();

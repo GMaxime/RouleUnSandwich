@@ -75,7 +75,7 @@ public class SandwichPerso {
 	}
 
 	public void addProduits(Produit produit) {
-		ProduitSandwichPerso psp = new ProduitSandwichPerso(id, produit.getId(), produit);
+		ProduitSandwichPerso psp = new ProduitSandwichPerso(id,produit.getId(), produit);
 		produits.add(psp);
 	}
 	

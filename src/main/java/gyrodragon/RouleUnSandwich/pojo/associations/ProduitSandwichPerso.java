@@ -29,6 +29,8 @@ public class ProduitSandwichPerso implements Serializable {
 	@JoinColumn(name = "psp_pro_id")
 	Produit produit;
 
+	public ProduitSandwichPerso(){}
+
 	public ProduitSandwichPerso(int idSan, int idPro, Produit produit) {
 		super();
 		this.idSan = idSan;
