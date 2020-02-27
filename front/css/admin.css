@@ -1,0 +1,87 @@
+html, body {
+    height: 100%;
+}
+/**********************/
+/********HEADER********/
+/**********************/
+header {
+    background: #6FC6BE;
+    position: static;
+    height: 75px;
+    width: 100%;
+}
+.divTitre {
+    margin: 0 auto;
+    width: 100px;
+}
+.titre {
+    font-weight: bold;
+    margin: -18px 0px 0px 0px;
+    color: black;
+    text-align: center;
+}
+.gyrodragon {
+    width: 70px;
+    margin: 7px 0px -36px -95px;
+}
+.sandwich {
+    width: 45px;
+    margin: -72px 0px 0px 253px;
+}
+/**********************/
+/******* /HEADER*******/
+/**********************/
+
+
+/**********************/
+/*********NAV**********/
+/**********************/
+aside {
+    background: #6FC6BE;
+    float: left;
+    width: 150px;
+    height: 100%;
+    padding: 5px;
+}
+
+.menuD {
+    background: beige;
+}
+
+li {
+    list-style: none;
+}
+/**********************/
+/******** /NAV*********/
+/**********************/
+
+
+/***********************/
+/*********BODY**********/
+/***********************/
+body {
+    background-image: url("front/img/pattern.svg");
+    background-repeat: repeat;
+}
+th {
+    border: black 2px solid;
+    margin: auto;
+}
+
+td {
+    border: black 1px solid;
+}
+/***********************/
+/******** /BODY*********/
+/***********************/
+
+ul#nav {margin: 0 0 0 200px;}
+ul.drop a { display:block; color: #fff; font-family: Verdana; font-size: 14px; text-decoration: none;}
+ul.drop, ul.drop li, ul.drop ul { list-style: none; margin: 0; padding: 0; border: 1px solid #fff; background: #555; color: #fff;}
+ul.drop { position: relative; z-index: 597; float: left; }
+ul.drop li { float: left; line-height: 1.3em; vertical-align: middle; zoom: 1; padding: 5px 10px; }
+ul.drop li.hover, ul.drop li:hover { position: relative; z-index: 599; cursor: default; background: #039935; }
+ul.drop ul { visibility: hidden; position: absolute; top: 100%; left: 0; z-index: 598; width: 195px; background: #555; border: 1px solid #fff; }
+ul.drop ul li { float: none; }
+ul.drop ul ul { top: -2px; left: 100%; }
+ul.drop li:hover > ul { visibility: visible }
