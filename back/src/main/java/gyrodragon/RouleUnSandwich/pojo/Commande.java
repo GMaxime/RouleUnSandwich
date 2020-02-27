@@ -11,7 +11,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
 import gyrodragon.RouleUnSandwich.pojo.associations.CommandeAccompagnement;
+import gyrodragon.RouleUnSandwich.pojo.hibernate.HibernateUtil;
 
 @Entity
 @Table(name = "commandes")
@@ -37,6 +42,16 @@ public class Commande {
 	
 	@Column(name = "com_price")
 	Double price;
+	
+	public Commande() {}
+	
+	public Commande(Integer client) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction tcx = session.beginTransaction();
+		
+		Query<Client> query = session.createQuery("FROM Client WHERE cli_id = "+client);
+		this.client = query.getSingleResult();
+	}
 	
 	public List<Accompagnement> getAccompagnements() {
 		List<Accompagnement> pro = new ArrayList<Accompagnement>();

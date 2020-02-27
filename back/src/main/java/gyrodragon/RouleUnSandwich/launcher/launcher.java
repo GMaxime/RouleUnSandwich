@@ -10,8 +10,6 @@ import gyrodragon.RouleUnSandwich.pojo.hibernate.HibernateUtil;
 
 public class launcher {
 	public static void main(String[] args) {
-		ProduitRepository.create("toto",1.0);
-
 	}
 
 	private static void ShowProductChoice() {

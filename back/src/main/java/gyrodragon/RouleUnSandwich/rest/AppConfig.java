@@ -11,5 +11,6 @@ public class AppConfig extends ResourceConfig {
     public AppConfig() throws SQLException {
         packages("gyrodragon.RouleUnSandwich.rest");
         register(ProduitService.class);
+        register(CommandeService.class);
     }
 }
