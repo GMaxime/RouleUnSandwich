@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="back:src:main:resources:hibernate.cfg.xml/Hibernate" uuid="5b4f532e-5c47-43bf-9866-0ca82e8190df">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+D:/dut peg/sem_3/prod/google home/RouleUnSandwich/back/src/main/resources/hibernate.cfg.xml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ec2-54-217-228-25.eu-west-1.compute.amazonaws.com:5432/d68bpv4iaqa27u</jdbc-url>
+    </data-source>
+  </component>
+</project>

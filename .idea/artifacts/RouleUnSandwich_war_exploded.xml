@@ -59,10 +59,11 @@
           <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-runtime:3.0.8" />
           <element id="library" level="project" name="Maven: org.jvnet.staxex:stax-ex:1.8.1" />
           <element id="library" level="project" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.16" />
+          <element id="library" level="project" name="Maven: org.json:json:20190722" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/back/target/RouleUnSandwich-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/RouleUnSandwich-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="RouleUnSandwich/web/Web" />
     </root>
