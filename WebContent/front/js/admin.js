@@ -7,7 +7,7 @@ const init = {
     cache: 'default'
 };
 
-fetch('/rest/commande/valide', init).then(function (commandes) {
+fetch('172.20.10.2:8080/rest/Commande/Valide', init).then(function (commandes) {
     if (commandes.ok) {
         return "ok";
     }

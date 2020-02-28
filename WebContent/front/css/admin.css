@@ -60,7 +60,7 @@ li {
 /*********BODY**********/
 /***********************/
 body {
-    background-image: url("front/img/pattern.svg");
+    background-image: url("../img/pattern.svg");
     background-repeat: repeat;
 }
 th {
@@ -75,13 +75,61 @@ td {
 /******** /BODY*********/
 /***********************/
 
-ul#nav {margin: 0 0 0 200px;}
-ul.drop a { display:block; color: #fff; font-family: Verdana; font-size: 14px; text-decoration: none;}
-ul.drop, ul.drop li, ul.drop ul { list-style: none; margin: 0; padding: 0; border: 1px solid #fff; background: #555; color: #fff;}
-ul.drop { position: relative; z-index: 597; float: left; }
-ul.drop li { float: left; line-height: 1.3em; vertical-align: middle; zoom: 1; padding: 5px 10px; }
-ul.drop li.hover, ul.drop li:hover { position: relative; z-index: 599; cursor: default; background: #039935; }
-ul.drop ul { visibility: hidden; position: absolute; top: 100%; left: 0; z-index: 598; width: 195px; background: #555; border: 1px solid #fff; }
-ul.drop ul li { float: none; }
-ul.drop ul ul { top: -2px; left: 100%; }
-ul.drop li:hover > ul { visibility: visible }
+/***********************/
+/*********ASIDE*********/
+/***********************/
+ul.drop a {
+    display:block;
+    color: #fff;
+    font-family: Verdana;
+    font-size: 14px;
+    text-decoration: none;
+}
+ul.drop, ul.drop li, ul.drop ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+ul.drop {
+    position: relative;
+}
+ul.drop li {
+    float: left;
+    line-height: 1.3em;
+    vertical-align: middle;
+    zoom: 1;
+    padding: 5px 10px;
+}
+ul.drop li.hover, ul.drop li:hover {
+    position: relative;
+    z-index: 599;
+    cursor: default;
+    background: #039935;
+}
+ul.drop ul {
+    visibility: hidden;
+    position: absolute;
+    top: 100%; left: 0;
+    z-index: 598;
+    width: 195px;
+    background: #555;
+    border: 1px solid #fff;
+}
+ul.drop ul li {
+    float: none;
+}
+ul.drop ul ul {
+    top: -2px;
+    left: 100%;
+}
+ul.drop li:hover > ul {
+    visibility: visible
+}
+button {
+    background-color: aqua;
+    color: black;
+}
+/***********************/
+/******** /ASIDE********/
+/***********************/
